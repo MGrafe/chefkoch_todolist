@@ -1,0 +1,159 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Chefkoch",
+		"_postman_id": "97575011-3ba5-97bb-2294-1a5bea1ea2d8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Chefkoch Get All ToDos",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/tasks/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch Get One ToDo",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/tasks/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch create ToDo",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/tasks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ToDo wird immer...\",\n    \"description\": \"...in die ToDoList mit der ID 1 geschrieben\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch Update ToDo",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/tasks/4",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pfeffer\",\n    \"description\": \"Neue Körner mitbringen\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch Delete ToDo",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/tasks/5",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch create TodoList",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/todolist",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bucketlist\",\n    \"description\": \"Was ich im Leben noch alles machen möchte\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch Get One TodoList",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/todolist/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Chefkoch UpdateTodoList",
+			"request": {
+				"url": "http://chefkoch-todo.lo/api/todolist/3",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Rezeptliste\",\n    \"description\": \"Neue, noch bessere, Rezepte\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
