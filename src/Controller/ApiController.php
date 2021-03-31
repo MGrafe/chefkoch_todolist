@@ -43,7 +43,7 @@ class ApiController extends AbstractController
      * @throws \Exception
      * @Route("/todolist", name="todolist_add", methods={"POST"})
      */
-    public function addTodolist(Request $request, EntityManagerInterface $entityManager, TodolistRepository $TodolistRepository)
+    public function addTodolist(Request $request, EntityManagerInterface $entityManager)
     {
 
         try{
@@ -64,18 +64,12 @@ class ApiController extends AbstractController
             $entityManager->persist($todolist);
             $entityManager->flush();
 
-
-
-            $data = [
-                'status' => 200,
-                'success' => "Task added successfully",
-            ];
             return $this->response($todolist);
 
         }catch (\Exception $e){
             $data = [
                 'status' => 422,
-                'errors' => "Data no valid",
+                'errors' => "Data not valid",
             ];
             return $this->response($data, 422);
         }
@@ -163,7 +157,7 @@ class ApiController extends AbstractController
         }catch (\Exception $e){
             $data = [
                 'status' => 422,
-                'errors' => "Data no valid",
+                'errors' => "Data not valid",
             ];
             return $this->response($data, 422);
         }
@@ -223,7 +217,7 @@ class ApiController extends AbstractController
      * @throws \Exception
      * @Route("/tasks", name="tasks_add", methods={"POST"})
      */
-    public function addTask(Request $request, EntityManagerInterface $entityManager, TaskRepository $TaskRepository)
+    public function addTask(Request $request, EntityManagerInterface $entityManager)
     {
 
         try{
@@ -258,7 +252,7 @@ class ApiController extends AbstractController
         }catch (\Exception $e){
             $data = [
                 'status' => 422,
-                'errors' => "Data no valid",
+                'errors' => "Data not valid",
             ];
             return $this->response($data, 422);
         }
@@ -272,7 +266,7 @@ class ApiController extends AbstractController
      * @return JsonResponse
      * @Route("/tasks/{id}", name="tasks_get", methods={"GET"})
      */
-    public function getTask(Request $request, EntityManagerInterface $entityManager, TaskRepository $TaskRepository, $id)
+    public function getTask(TaskRepository $TaskRepository, $id)
     {
         $task = $TaskRepository->find($id);
 
@@ -319,9 +313,9 @@ class ApiController extends AbstractController
 
             $task->setName($request->get('name'));
             $task->setDescription($request->get('description'));
-            // TODO: NOCHMAL nach REP gucken
             $todolist = $entityManager->getRepository(Todolist::class)->find(1);
             $task->setTodolist($todolist);
+            $entityManager->persist($task);
             $entityManager->flush();
 
 
@@ -337,7 +331,7 @@ class ApiController extends AbstractController
         }catch (\Exception $e){
             $data = [
                 'status' => 422,
-                'errors' => "Data no valid",
+                'errors' => "Data not valid",
             ];
             return $this->response($data, 422);
         }

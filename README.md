@@ -18,10 +18,10 @@
    ```sh
    composer install
    ```
-3. create an `.env` out of the .env.dist with your DB Credentials
-   ```php
+3. create an `.env` out of the `.env.dist` with your DB Credentials
+   ```sh
     DATABASE_URL="mysql://user:password@127.0.0.1:3306/db_name?serverVersion=8.0"
- 
+   ```
 4. Database migration
    ```sh
    php bin/console doctrine:migrations:migrate 
@@ -29,10 +29,8 @@
 5. Start your webserver  
    ```sh
    I started the apache via MAMP PRO with chefkoch-todo.lo as the hostname. 
-   But a simple symfony server:start should work as well. 
-   
+   But a simple symfony server:start should work as well.    
    ```
-   
 6. Mock-Data
     ```sh
    use the mock-data.sql for Test-Data
